@@ -49,11 +49,8 @@ const Login = () => {
     return (
       <div className={styles.container}>
         <Head>
-          <title>NextJS Firebase Auth Starter Kit</title>
-          <meta
-            name="description"
-            content="A starter kit created by @official-carledwardfp"
-          />
+          <title>Login</title>
+
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -72,10 +69,13 @@ const Login = () => {
               onSubmit={(e) => e.preventDefault()}
             >
               <Form.Item
-                label="Username"
+                label="Email"
                 name="username"
                 rules={[
-                  { required: true, message: "Please input your username!" },
+                  {
+                    required: true,
+                    message: "Voer een geldige gebruikersnaam in",
+                  },
                 ]}
                 onChange={(event) => setEmail(event.target.value)}
               >
@@ -83,10 +83,10 @@ const Login = () => {
               </Form.Item>
 
               <Form.Item
-                label="Password"
+                label="Wachtwoord"
                 name="password"
                 rules={[
-                  { required: true, message: "Please input your password!" },
+                  { required: true, message: "Voer een geldig wachtwoord in" },
                 ]}
                 onChange={(event) => setPassword(event.target.value)}
               >

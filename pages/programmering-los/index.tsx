@@ -3,7 +3,7 @@ import ProgrammeringComponent from "../../components/programmeringComponent";
 
 const Programmering = () => {
   return (
-    <Layout>
+    <Layout currentPage={2}>
       <ProgrammeringComponent name="programmering" omroep="LOS Den Helder" />
     </Layout>
   );
