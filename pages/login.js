@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import { useAuth } from "../components/Auth/auth";
 import { setErrorMessage } from "../components/Auth/setErrorMessage";
+import { Form, Input, Checkbox, Button, Card, Typography } from "antd";
 
 const Login = () => {
   const router = useRouter();
@@ -14,8 +15,10 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = (event, email, password) => {
-    event.preventDefault();
+  const { Title } = Typography;
+
+  const signIn = (email, password) => {
+    // event.preventDefault();
 
     auth
       .signIn(email, password)
@@ -55,25 +58,48 @@ const Login = () => {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>Login</h1>
-          <br />
-          <form onSubmit={(event) => signIn(event, email, password)}>
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
+          <Title level={2}>Login</Title>
+
+          <Card style={{ maxWidth: 500 }}>
+            <Form
+              name="basic"
+              labelCol={{ span: 8 }}
+              wrapperCol={{ span: 16 }}
+              initialValues={{ remember: true }}
+              onFinish={() => signIn(email, password)}
+              // onFinishFailed={onFinishFailed}
+              autoComplete="off"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[
+                  { required: true, message: "Please input your username!" },
+                ]}
+                onChange={(event) => setEmail(event.target.value)}
+              >
+                <Input />
+              </Form.Item>
+
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: "Please input your password!" },
+                ]}
+                onChange={(event) => setPassword(event.target.value)}
+              >
+                <Input.Password />
+              </Form.Item>
+
+              <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </Card>
           <Link href="/">&larr; Go back</Link>
         </main>
       </div>
