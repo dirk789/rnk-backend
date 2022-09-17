@@ -9,6 +9,7 @@ const Notificatie = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [link, setLink] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const [token, setToken] = useState("");
 
@@ -23,18 +24,22 @@ const Notificatie = () => {
   const { Title, Text } = Typography;
 
   async function onFormSubmit() {
+    setIsSending(true);
     if (link && !link.startsWith("https://www.regionoordkop.nl/")) {
       message.error("Link moet beginnen met https://www.regionoordkop.nl/");
+      setIsSending(false);
       return;
     }
 
     if (!title || !content) {
       message.error("Vul alle velden in");
+      setIsSending(false);
       return;
     }
 
     if (!token) {
       message.error("Ongeautoriseerd");
+      setIsSending(false);
       return;
     }
 
@@ -58,11 +63,9 @@ const Notificatie = () => {
       .then((resp) => {
         if (resp.status === 200) {
           message.success("Notificatie verzonden");
+          form.resetFields();
         } else {
           message.error("Er is iets fout gegaan");
-          setTitle("");
-          setContent("");
-          setLink("");
         }
       })
       .catch((e) => {
@@ -71,6 +74,8 @@ const Notificatie = () => {
         );
         console.error(e);
       });
+
+    setIsSending(false);
   }
 
   const [form] = Form.useForm();
@@ -98,7 +103,7 @@ const Notificatie = () => {
                 placeholder="https://www.regionoordkop.nl/20/08/2022/tent-op-de-haven-en-bloementent-na-twee-jaar-weer-terug-in-den-oever/"
               />
             </Form.Item>
-            <Button htmlType="submit" type="primary">
+            <Button htmlType="submit" type="primary" loading={isSending}>
               Verstuur
             </Button>
           </Form>
