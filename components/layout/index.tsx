@@ -4,6 +4,7 @@ import { useAuth } from "../Auth/auth";
 import Link from "next/link";
 // import { Spin } from "antd";
 import { Loading } from "../loading";
+import Image from 'next/image'
 
 import { Layout as AntLayout, Menu } from "antd";
 
@@ -39,11 +40,20 @@ const Layout = ({
               bottom: 0,
             }}
           >
-            <div className="logo" />
+            <div className="logo" style={{ padding: '32px 21px', borderRight: '1px solid #f0f0f0' }} >
+              <Image
+                src="/img/logo.png"
+                width={200}
+                height={75}
+                objectFit="contain"
+                alt="Regio Noordkop Logo"
+              />
+            </div>
             <Menu
               theme="light"
               mode="inline"
               defaultSelectedKeys={[String(currentPage + 1)]}
+              style={{ minHeight: '100%' }}
             >
               <Menu.Item key="1">
                 <Link href="/start">Start</Link>
@@ -58,7 +68,7 @@ const Layout = ({
           </Sider>
           <AntLayout
             className=""
-            style={{ marginLeft: 200, backgroundColor: "white" }}
+            style={{ marginLeft: 200, backgroundColor: "white", minHeight: '100vh' }}
           >
             <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
               <div
