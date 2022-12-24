@@ -81,7 +81,7 @@ const Notificatie = () => {
   const [form] = Form.useForm();
 
   return (
-    <Layout currentPage={3}>
+    <Layout currentPage={2}>
       <Title level={2}>Verstuur een notificatie</Title>
       <Row gutter={[16, 16]}>
         <Col span={16}>

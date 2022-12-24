@@ -68,7 +68,7 @@ const ProgrammeringComponent = ({
 
   return (
     <>
-      <h1>Programmering {omroep}</h1>
+      <h1>Programmering</h1>
       <Tabs defaultActiveKey="1">
         <TabPane tab="Maandag" key="1">
           <h3>Maandag</h3>
@@ -78,8 +78,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    1: [...(programmering ? programmering[1] : [])],
-                  }
+                  1: [...(programmering ? programmering[1] : [])],
+                }
                 : {}
             }
           />
@@ -92,8 +92,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    2: [...(programmering[2] ? programmering[2] : [])],
-                  }
+                  2: [...(programmering[2] ? programmering[2] : [])],
+                }
                 : {}
             }
           />
@@ -106,8 +106,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    3: [...(programmering[3] ? programmering[3] : [])],
-                  }
+                  3: [...(programmering[3] ? programmering[3] : [])],
+                }
                 : {}
             }
           />
@@ -120,8 +120,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    4: [...(programmering[4] ? programmering[4] : [])],
-                  }
+                  4: [...(programmering[4] ? programmering[4] : [])],
+                }
                 : {}
             }
           />
@@ -134,8 +134,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    5: [...(programmering[5] ? programmering[5] : [])],
-                  }
+                  5: [...(programmering[5] ? programmering[5] : [])],
+                }
                 : {}
             }
           />
@@ -148,8 +148,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    6: [...(programmering[6] ? programmering[6] : [])],
-                  }
+                  6: [...(programmering[6] ? programmering[6] : [])],
+                }
                 : {}
             }
           />
@@ -162,8 +162,8 @@ const ProgrammeringComponent = ({
             initialValues={
               programmering
                 ? {
-                    0: [...(programmering[0] ? programmering[0] : [])],
-                  }
+                  0: [...(programmering[0] ? programmering[0] : [])],
+                }
                 : {}
             }
           />

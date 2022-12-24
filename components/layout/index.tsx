@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { useAuth } from "../Auth/auth";
-import { useRouter } from "next/dist/client/router";
+// import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import { Spin } from "antd";
+// import { Spin } from "antd";
 import { Loading } from "../loading";
 
 import { Layout as AntLayout, Menu } from "antd";
@@ -14,21 +14,13 @@ const Layout = ({
   children: ReactNode;
   currentPage: number;
 }) => {
-  const { user, loading, signOut } = useAuth();
-
-  const router = useRouter();
-
-  console.log(user);
-
-  //   if (typeof window !== "undefined" && !user) {
-  //     window.location.href = "/";
-  //   }
+  const { user, loading } = useAuth();
 
   if (loading) {
     return <Loading />;
   }
 
-  const { Header, Content, Footer, Sider } = AntLayout;
+  const { Content, Footer, Sider } = AntLayout;
 
   const date = new Date();
 
@@ -57,12 +49,9 @@ const Layout = ({
                 <Link href="/start">Start</Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link href="/programmering-nk">Programmering RNK</Link>
+                <Link href="/programmering-los">Programmering</Link>
               </Menu.Item>
               <Menu.Item key="3">
-                <Link href="/programmering-los">Programmering LOS</Link>
-              </Menu.Item>
-              <Menu.Item key="4">
                 <Link href="/notificatie">Push bericht</Link>
               </Menu.Item>
             </Menu>
@@ -71,13 +60,8 @@ const Layout = ({
             className=""
             style={{ marginLeft: 200, backgroundColor: "white" }}
           >
-            {/* <Header
-              className=""
-              style={{ padding: 0, backgroundColor: "white" }}
-            /> */}
             <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
               <div
-                // className="site-layout-background"
                 style={{ padding: 24 }}
               >
                 {children}
