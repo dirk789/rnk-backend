@@ -15,7 +15,7 @@ const Layout = ({
   children: ReactNode;
   currentPage: number;
 }) => {
-  const { user, loading } = useAuth();
+  const { user, loading, signOut } = useAuth();
 
   if (loading) {
     return <Loading />;
@@ -53,7 +53,7 @@ const Layout = ({
               theme="light"
               mode="inline"
               defaultSelectedKeys={[String(currentPage + 1)]}
-              style={{ minHeight: '100%' }}
+              style={{ minHeight: 'calc(100% - 128px)', display: 'flex', flexDirection: 'column' }}
             >
               <Menu.Item key="1">
                 <Link href="/start">Start</Link>
@@ -63,6 +63,9 @@ const Layout = ({
               </Menu.Item>
               <Menu.Item key="3">
                 <Link href="/notificatie">Push bericht</Link>
+              </Menu.Item>
+              <Menu.Item key="4" onClick={signOut} style={{ marginTop: 'auto' }}>
+                <Link href="/">Sign Out</Link>
               </Menu.Item>
             </Menu>
           </Sider>
