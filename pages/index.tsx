@@ -6,6 +6,7 @@ import { useAuth } from "../components/Auth/auth";
 import Image from "next/image";
 // import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
+import { Spin } from "antd";
 
 const HomePage = () => {
   const router = useRouter();
@@ -20,33 +21,13 @@ const HomePage = () => {
     router.push("/start");
   }
 
+  if (!user) {
+    router.push("/login");
+  }
+
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Regio Noordkop App Dashboard</title>
-        <meta name="description" content="Regio Noordkop App Dashboard" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <Image
-          src="/img/logo.png"
-          width={400}
-          height={150}
-          objectFit="contain"
-          alt="Regio Noordkop Logo"
-        />
-        <h1 className={styles.title}>Regio Noordkop App Dashboard</h1>
-        <p>By Techvandaag</p>
-
-        <div className={styles.grid}>
-          <Link href="/login">
-            <a>
-              <h2>Login &rarr;</h2>
-            </a>
-          </Link>
-        </div>
-      </main>
+      <Spin size="large" />
     </div>
   );
 };

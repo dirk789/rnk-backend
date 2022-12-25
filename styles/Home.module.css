@@ -1,20 +1,29 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.login {
+  min-height: 100%;
+  background-color: white;
+  flex: 3;
+  background-image: url(https://images.unsplash.com/photo-1597669128861-7a69db4e3d1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzOTI3NDR8MHwxfHNlYXJjaHwxfHxkZW4lMjBoZWxkZXJ8ZW58MHx8fHwxNjcxOTY4Mzgy&ixlib=rb-4.0.3&q=90&w=1920);
+  background-size: cover;
+  background-position: center right;
+}
+
+.loginContent {
+  flex: 2;
+  padding: 32px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .footer {

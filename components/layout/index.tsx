@@ -7,6 +7,7 @@ import { Loading } from "../loading";
 import Image from 'next/image'
 
 import { Layout as AntLayout, Menu } from "antd";
+import router from "next/router";
 
 const Layout = ({
   children,
@@ -24,6 +25,10 @@ const Layout = ({
   const { Content, Footer, Sider } = AntLayout;
 
   const date = new Date();
+
+  if (!user) {
+    router.push("/login")
+  }
 
   return (
     <div>
@@ -65,7 +70,7 @@ const Layout = ({
                 <Link href="/notificatie">Push bericht</Link>
               </Menu.Item>
               <Menu.Item key="4" onClick={signOut} style={{ marginTop: 'auto' }}>
-                <Link href="/">Sign Out</Link>
+                <Link href="/login">Uitloggen</Link>
               </Menu.Item>
             </Menu>
           </Sider>
@@ -81,13 +86,13 @@ const Layout = ({
               </div>
             </Content>
             <Footer style={{ textAlign: "center" }}>
-              {date.getFullYear()} Techvandaag
+              © {date.getFullYear()} Techvandaag
             </Footer>
           </AntLayout>
         </AntLayout>
       ) : (
         <Link href="/">
-          <a>Please login to view this page</a>
+          <a>Log in om deze pagina te kunnen bekijken</a>
         </Link>
       )}
     </div>
