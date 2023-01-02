@@ -2,7 +2,7 @@ import { Button, Col, Form, Input, message, Row, Typography } from "antd";
 import FormItemLabel from "antd/lib/form/FormItemLabel";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../components/Auth/auth";
-import { Layout } from "../../components/layout";
+import { Layout, Pages } from "../../components/layout";
 import { NotificationMockup } from "../../components/notification";
 
 const Notificatie = () => {
@@ -81,7 +81,7 @@ const Notificatie = () => {
   const [form] = Form.useForm();
 
   return (
-    <Layout currentPage={2}>
+    <Layout currentPage={Pages.Notificatie}>
       <Title level={2}>Verstuur een notificatie</Title>
       <Row gutter={[16, 16]}>
         <Col span={16}>

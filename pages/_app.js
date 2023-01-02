@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { AuthProvider } from "../components/Auth/auth";
-import "antd/dist/antd.css";
+import "antd/dist/reset.css";
 
 function MyApp({ Component, pageProps }) {
   return (
